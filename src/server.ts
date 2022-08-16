@@ -8,4 +8,4 @@ const port = process.env.PORT || 6060;
 
 app.use(errors());
 app.listen(port);
-console.log("listeting at", port);
+console.log("listening at", port);
