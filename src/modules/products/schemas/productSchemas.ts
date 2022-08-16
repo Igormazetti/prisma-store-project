@@ -12,3 +12,10 @@ export const getProductByIdSchema = celebrate({
     id: Joi.number().required(),
   },
 });
+
+export const updateProductSchema = celebrate({
+  [Segments.BODY]: {
+    id: Joi.number().required(),
+    quantity: Joi.number().required(),
+  },
+});

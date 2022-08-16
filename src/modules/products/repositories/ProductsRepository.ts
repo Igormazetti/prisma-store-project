@@ -40,11 +40,11 @@ export class ProductsRepository {
 
   public async updateProductById(
     id: number,
-    quantity: number
+    quantityN: number
   ): Promise<Products> {
     const product = await prisma.products.update({
       data: {
-        quantity,
+        quantity: quantityN,
       },
       where: {
         id,
