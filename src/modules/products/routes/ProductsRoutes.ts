@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { CreateProductController } from "../controllers/CreateProductController";
-import { createProductSchema } from "../../../schemas/validationSchema";
+import { ProductController } from "../controllers/ProductController";
 
 const router = Router();
-const createProductController = new CreateProductController();
+const productController = new ProductController();
 
-router.post("/", createProductSchema, createProductController.create);
+router.post("/", productController.create);
+router.get("/", productController.getAll);
 
 export default router;

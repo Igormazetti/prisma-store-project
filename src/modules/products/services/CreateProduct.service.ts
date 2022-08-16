@@ -1,8 +1,8 @@
-import { CreateProduct } from "../repositories/ProductsRepository";
+import { ProductsRepository } from "../repositories/ProductsRepository";
 
 export class CreateProductService {
   public async execute(title: string, quantity: number) {
-    const createProduct = new CreateProduct();
+    const createProduct = new ProductsRepository();
 
     const product = await createProduct.createProduct({ title, quantity });
 

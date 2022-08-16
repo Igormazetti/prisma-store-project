@@ -7,7 +7,7 @@ interface IProducts {
   quantity: number;
 }
 
-export class CreateProduct {
+export class ProductsRepository {
   public async createProduct({
     title,
     quantity,
