@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   const { push } = useRouter()
 
   useEffect(() => {
-    push({ pathname: routes.dashboard })
+    push({ pathname: routes.login })
   }, [push])
   return <></>
 }
