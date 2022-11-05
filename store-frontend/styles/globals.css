@@ -22,3 +22,23 @@ a {
 .chakra-portal {
   display: none;
 }
+
+.formularios {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  color: black;
+}
+
+.formik-input {
+  height: 60px;
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 10px 15px;
+}
+
+.form-label {
+  max-height: 80px;
+}
