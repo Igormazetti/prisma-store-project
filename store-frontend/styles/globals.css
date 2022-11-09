@@ -2,8 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 a {
@@ -13,14 +12,32 @@ a {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  height: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.chakra-portal {
+  display: none;
+}
+
+.formularios {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  color: black;
+}
+
+.formik-input {
+  height: 60px;
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 10px 15px;
+}
+
+.form-label {
+  max-height: 80px;
 }
