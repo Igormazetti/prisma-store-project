@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 export class Token {
   createToken = (email) => {
     const token = jwt.sign({ data: email }, process.env.JWT_SECRET, {
-      expiresIn: "15m",
+      expiresIn: "30d",
       algorithm: "HS256",
     });
     return token;
