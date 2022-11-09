@@ -1,4 +1,4 @@
-import { ProductsRepository } from "../repositories/ProductsRepository";
+import { ProductsRepository } from "../repository/ProductsRepository";
 
 export class GetProductByIdService {
   public async execute(id: string) {
