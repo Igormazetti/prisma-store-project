@@ -11,7 +11,7 @@ export default function Login() {
   return (
     <Flex
       bg="rgb(215,215,215);"
-      bgImage="linear-gradient(144deg, rgba(167,165,165,1) 64%, rgba(18,68,82,1) 97%)"
+      bgImage="linear-gradient(144deg, #d6d3d3 64%, rgba(17,64,77,1) 97%)"
       w="100%"
       h="full"
       p={4}
