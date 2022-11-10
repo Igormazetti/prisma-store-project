@@ -1,4 +1,5 @@
 import { UserRepository } from "../repository/UserRepository";
+import { Encrypt } from "../../../utils/hash";
 
 export class CreateUserService {
   public async execute(
@@ -8,11 +9,14 @@ export class CreateUserService {
     companyId: number
   ) {
     const createUser = new UserRepository();
+    const encrypt = new Encrypt();
+
+    const hashPassword = encrypt.encryptPassword(password);
 
     const user = await createUser.createUser({
       name,
       email,
-      password,
+      password: hashPassword,
       companyId,
     });
 
