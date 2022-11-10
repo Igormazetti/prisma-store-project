@@ -10,6 +10,13 @@ export const createUserSchema = celebrate({
   },
 });
 
+export const loginSchema = celebrate({
+  [Segments.PARAMS]: {
+    email: Joi.string().required(),
+    password: Joi.string().required(),
+  },
+});
+
 export const getUserByIdSchema = celebrate({
   [Segments.PARAMS]: {
     id: Joi.number().required(),

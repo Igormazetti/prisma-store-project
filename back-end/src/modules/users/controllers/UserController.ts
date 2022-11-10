@@ -4,7 +4,7 @@ import LoginService from '../services/Login.service';
 // import { GetProductByIdService } from "../services/GetProductById.service";
 // import { UpdateProductByIdService } from "../services/UpdateProductById.service";
 
-export default class ProductController {
+export default class UserController {
   private createUserService: CreateUserService;
   private loginService: LoginService;
 
