@@ -9,7 +9,7 @@ interface IUsers {
   companyId: number;
 }
 
-export class UsersRepository {
+export class UserRepository {
   public async createUser({
     name,
     email,
@@ -30,7 +30,6 @@ export class UsersRepository {
 
   public async getAllUsers(): Promise<Users[]> {
     const users = await prisma.users.findMany();
-
     return users;
   }
 
