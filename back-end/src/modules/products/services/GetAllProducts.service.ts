@@ -1,10 +1,14 @@
-import { ProductsRepository } from "../repository/ProductsRepository";
+import ProductsRepository from '../repository/ProductsRepository';
 
-export class GetAllProductsService {
+export default class GetAllProductsService {
+  private productsRepository: ProductsRepository;
+
+  constructor() {
+    this.productsRepository = new ProductsRepository();
+  }
+
   public async execute() {
-    const createProduct = new ProductsRepository();
-
-    const products = await createProduct.getAllProducts();
+    const products = await this.productsRepository.getAllProducts();
 
     return products;
   }

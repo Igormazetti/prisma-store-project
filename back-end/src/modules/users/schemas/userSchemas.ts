@@ -1,4 +1,4 @@
-import { celebrate, Segments, Joi } from "celebrate";
+import { celebrate, Segments, Joi } from 'celebrate';
 
 export const createUserSchema = celebrate({
   [Segments.BODY]: {

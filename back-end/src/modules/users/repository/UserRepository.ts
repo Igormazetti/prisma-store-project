@@ -1,5 +1,5 @@
-import { Users } from "@prisma/client";
-import { prisma } from "../../../database/prismaClient";
+import { Users } from '@prisma/client';
+import { prisma } from '../../../database/prismaClient';
 
 interface IUsers {
   id?: number;
@@ -9,14 +9,19 @@ interface IUsers {
   companyId: number;
 }
 
-export class UserRepository {
+export default class UserRepository {
+  private db: typeof prisma.users;
+  constructor() {
+    this.db = prisma.users;
+  }
+
   public async createUser({
     name,
     email,
     password,
     companyId,
   }: IUsers): Promise<Users> {
-    const user = await prisma.users.create({
+    const user = await this.db.create({
       data: {
         name,
         email,
@@ -29,14 +34,14 @@ export class UserRepository {
   }
 
   public async getAllUsers(): Promise<Users[]> {
-    const users = await prisma.users.findMany();
+    const users = await this.db.findMany();
     return users;
   }
 
-  public async getUserById(id: number): Promise<Users | null> {
-    const user = await prisma.users.findUnique({
+  public async findByEmail(email: string): Promise<Users | null> {
+    const user = await this.db.findUnique({
       where: {
-        id,
+        email,
       },
     });
 

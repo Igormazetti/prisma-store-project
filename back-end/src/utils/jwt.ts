@@ -1,19 +1,18 @@
-import jwt from "jsonwebtoken";
+import jwt from 'jsonwebtoken';
 
 interface ITokenPayload {
   iat: number;
   exp: number;
   sub: string;
 }
-1;
 
-const secret = process.env.JWT_SECRET || "secret";
+const secret = process.env.JWT_SECRET || 'secret';
 
-export class Token {
+export default class Token {
   createToken = (id: string) => {
     const token = jwt.sign({ data: id }, secret, {
-      expiresIn: "30d",
-      algorithm: "HS256",
+      expiresIn: '30d',
+      algorithm: 'HS256',
     });
     return token;
   };

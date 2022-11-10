@@ -1,19 +1,24 @@
-import { UserRepository } from "../repository/UserRepository";
-import { Encrypt } from "../../../utils/hash";
+import UserRepository from '../repository/UserRepository';
+import Encrypt from '../../../utils/hash';
 
-export class CreateUserService {
+export default class CreateUserService {
+  private userRepository: UserRepository;
+  private encrypt: Encrypt;
+
+  constructor() {
+    this.userRepository = new UserRepository();
+    this.encrypt = new Encrypt();
+  }
+
   public async execute(
     name: string,
     email: string,
     password: string,
-    companyId: number
+    companyId: number,
   ) {
-    const createUser = new UserRepository();
-    const encrypt = new Encrypt();
+    const hashPassword = this.encrypt.encryptPassword(password);
 
-    const hashPassword = encrypt.encryptPassword(password);
-
-    const user = await createUser.createUser({
+    const user = await this.userRepository.createUser({
       name,
       email,
       password: hashPassword,
