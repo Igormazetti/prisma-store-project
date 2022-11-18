@@ -16,4 +16,23 @@ model Products {
   updatedAt DateTime @updatedAt
   title     String   @db.VarChar(255)
   quantity  Int
+  value     Float
+  Company   Company  @relation(fields: [companyId], references: [id])
+  companyId Int
+}
+
+model Company {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique @db.VarChar(255)
+  employees Users[]
+  product   Products[]
+}
+
+model Users {
+  id        Int     @id @default(autoincrement())
+  name      String  @db.VarChar(255)
+  email     String  @unique
+  password  String  @db.VarChar(255)
+  company   Company @relation(fields: [companyId], references: [id])
+  companyId Int
 }
