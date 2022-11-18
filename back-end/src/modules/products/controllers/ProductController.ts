@@ -17,11 +17,15 @@ export default class ProductController {
   }
 
   public async getAll(_request: Request, response: Response) {
-    const getAllProductsService = container.resolve(GetAllProductsService);
+    try {
+      const getAllProductsService = container.resolve(GetAllProductsService);
 
-    const products = await getAllProductsService.execute();
+      const products = await getAllProductsService.execute();
 
-    return response.status(200).json(products);
+      return response.status(200).json(products);
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   public async getById(request: Request, response: Response) {
