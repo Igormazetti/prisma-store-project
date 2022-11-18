@@ -8,6 +8,7 @@ import { container } from 'tsyringe';
 export default class ProductController {
   public async create(request: Request, response: Response) {
     const { title, quantity } = request.body;
+
     const createProductService = container.resolve(CreateProductService);
 
     const product = await createProductService.execute(title, quantity);
@@ -25,6 +26,7 @@ export default class ProductController {
 
   public async getById(request: Request, response: Response) {
     const { id } = request.params;
+
     const getProductByIdService = container.resolve(GetProductByIdService);
 
     const product = await getProductByIdService.execute(id);
@@ -34,6 +36,7 @@ export default class ProductController {
 
   public async update(request: Request, response: Response) {
     const { id, quantity } = request.body;
+
     const updateProductService = container.resolve(UpdateProductByIdService);
 
     const product = await updateProductService.execute(id, quantity);
