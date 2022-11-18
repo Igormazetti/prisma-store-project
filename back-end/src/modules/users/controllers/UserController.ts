@@ -1,8 +1,6 @@
 import { Request, Response } from 'express';
 import CreateUserService from '../services/CreateUser.service';
 import LoginService from '../services/Login.service';
-// import { GetProductByIdService } from "../services/GetProductById.service";
-// import { UpdateProductByIdService } from "../services/UpdateProductById.service";
 
 export default class UserController {
   private createUserService: CreateUserService;
@@ -37,14 +35,4 @@ export default class UserController {
 
     return response.status(200).json(user);
   }
-
-  // public async update(request: Request, response: Response) {
-  //   const { id, quantity } = request.body;
-
-  //   const updateProductById = new UpdateProductByIdService();
-
-  //   const product = await updateProductById.execute(id, quantity);
-
-  //   return response.status(200).json(product);
-  // }
 }
