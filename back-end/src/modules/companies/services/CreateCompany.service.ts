@@ -7,7 +7,7 @@ export default class CreateCompanyService {
     this.companyRepository = new CompanyRepository();
   }
 
-  public async execute(name: string) {
+  public async create(name: string) {
     const company = await this.companyRepository.createCompany({
       name,
     });

@@ -1,20 +1,14 @@
 import { Request, Response } from 'express';
 import CreateCompanyService from '../services/CreateCompany.service';
 import FindCompanyService from '../services/FindCompany.service';
+import { container } from 'tsyringe';
 
 export default class CompanyController {
-  private createCompanyService: CreateCompanyService;
-  private findCompanyService: FindCompanyService;
-
-  constructor() {
-    this.createCompanyService = new CreateCompanyService();
-    this.findCompanyService = new FindCompanyService();
-  }
-
   public async create(request: Request, response: Response) {
     const { name } = request.body;
+    const creteCompanyService = container.resolve(CreateCompanyService);
 
-    const company = await this.createCompanyService.execute(name);
+    const company = await creteCompanyService.create(name);
 
     return response.status(200).json(company);
   }
@@ -22,7 +16,9 @@ export default class CompanyController {
   public async findById(request: Request, response: Response) {
     const { id } = request.params;
 
-    const company = await this.findCompanyService.execute(Number(id));
+    const findCompanyService = container.resolve(FindCompanyService);
+
+    const company = await findCompanyService.execute(Number(id));
 
     if (!company) {
       return response.status(404).json({ message: 'Empresa não encontrada!' });

@@ -1,5 +1,6 @@
+import 'reflect-metadata';
 import express from 'express';
-import userRouter from 'modules/users/routes/UserRoutes';
+import userRouter from './modules/users/routes/UserRoutes';
 import productRouter from './modules/products/routes/ProductsRoutes';
 import companyRouter from './modules/companies/routes/CompanyRoutes';
 

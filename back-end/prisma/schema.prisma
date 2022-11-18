@@ -22,7 +22,7 @@ model Products {
 
 model Company {
   id        Int        @id @default(autoincrement())
-  name      String     @db.VarChar(255)
+  name      String     @unique @db.VarChar(255)
   employees Users[]
   product   Products[]
 }
