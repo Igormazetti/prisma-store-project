@@ -2,7 +2,6 @@ import { celebrate, Segments, Joi } from 'celebrate';
 
 export const createUserSchema = celebrate({
   [Segments.BODY]: {
-    id: Joi.number().required(),
     name: Joi.string().required(),
     email: Joi.string().required(),
     password: Joi.string().required(),
@@ -11,7 +10,7 @@ export const createUserSchema = celebrate({
 });
 
 export const loginSchema = celebrate({
-  [Segments.PARAMS]: {
+  [Segments.BODY]: {
     email: Joi.string().required(),
     password: Joi.string().required(),
   },

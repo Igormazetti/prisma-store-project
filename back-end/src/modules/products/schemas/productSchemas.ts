@@ -4,6 +4,8 @@ export const createProductSchema = celebrate({
   [Segments.BODY]: {
     title: Joi.string().required(),
     quantity: Joi.number().required(),
+    companyId: Joi.number().required(),
+    value: Joi.number().required(),
   },
 });
 

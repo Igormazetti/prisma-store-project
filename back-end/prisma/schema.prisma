@@ -16,8 +16,9 @@ model Products {
   updatedAt DateTime @updatedAt
   title     String   @db.VarChar(255)
   quantity  Int
-  Company   Company? @relation(fields: [companyId], references: [id])
-  companyId Int?
+  value     Float
+  Company   Company  @relation(fields: [companyId], references: [id])
+  companyId Int
 }
 
 model Company {

@@ -7,25 +7,26 @@ import { container } from 'tsyringe';
 
 export default class ProductController {
   public async create(request: Request, response: Response) {
-    const { title, quantity } = request.body;
+    const { title, quantity, companyId, value } = request.body;
 
     const createProductService = container.resolve(CreateProductService);
 
-    const product = await createProductService.execute(title, quantity);
+    const product = await createProductService.execute(
+      title,
+      quantity,
+      companyId,
+      value,
+    );
 
     return response.status(200).json(product);
   }
 
   public async getAll(_request: Request, response: Response) {
-    try {
-      const getAllProductsService = container.resolve(GetAllProductsService);
+    const getAllProductsService = container.resolve(GetAllProductsService);
 
-      const products = await getAllProductsService.execute();
+    const products = await getAllProductsService.execute();
 
-      return response.status(200).json(products);
-    } catch (e) {
-      console.log(e);
-    }
+    return response.status(200).json(products);
   }
 
   public async getById(request: Request, response: Response) {

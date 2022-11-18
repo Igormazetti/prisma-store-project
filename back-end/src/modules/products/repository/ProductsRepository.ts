@@ -5,6 +5,8 @@ interface IProducts {
   id?: number;
   title: string;
   quantity: number;
+  companyId: number;
+  value: number;
 }
 
 export default class ProductsRepository {
@@ -16,11 +18,15 @@ export default class ProductsRepository {
   public async createProduct({
     title,
     quantity,
+    companyId,
+    value,
   }: IProducts): Promise<Products> {
     const product = await this.db.create({
       data: {
         title,
         quantity,
+        companyId,
+        value,
       },
     });
 

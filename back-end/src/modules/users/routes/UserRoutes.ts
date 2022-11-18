@@ -6,6 +6,6 @@ const userRouter = Router();
 const userController = new UserController();
 
 userRouter.post('/', createUserSchema, userController.create);
-userRouter.post('/', loginSchema, userController.login);
+userRouter.post('/login', loginSchema, userController.login);
 
 export default userRouter;
