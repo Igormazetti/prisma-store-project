@@ -6,6 +6,6 @@ const companyRouter = Router();
 const companyController = new CompanyController();
 
 companyRouter.post('/', createCompanySchema, companyController.create);
-companyRouter.get('/', companyController.findById);
+companyRouter.get('/:id', companyController.findById);
 
 export default companyRouter;
