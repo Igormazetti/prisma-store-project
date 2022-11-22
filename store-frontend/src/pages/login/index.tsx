@@ -1,13 +1,20 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import Router from "next/router";
-import { setTokenState } from "../../redux/store/tokenSlice";
-import { useDispatch } from "react-redux";
+import { Box, Flex, Text } from '@chakra-ui/react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import Router from 'next/router';
+import { setTokenState } from 'redux/store/tokenSlice';
+import { useDispatch } from 'react-redux';
+import { login } from 'service/login';
 
 export default function Login() {
-  const redirectCriarConta = () => {
-    Router.push("/criarconta");
+  const redirectDashboard = () => {
+    Router.push('/dashboard');
+  };
+
+  const handleLoginRequest = async (email: string, password: string) => {
+    const user = await login(email, password);
+    console.log(user);
+    return user.token;
   };
 
   const dispatch = useDispatch();
@@ -35,20 +42,24 @@ export default function Login() {
         p="15"
       >
         <Formik
-          initialValues={{ email: "", password: "" }}
+          initialValues={{ email: '', password: '' }}
           validationSchema={Yup.object({
             email: Yup.string()
-              .email("Invalid email address")
-              .required("Required"),
+              .email('Invalid email address')
+              .required('Required'),
             password: Yup.string()
-              .min(5, "Senha deve ter ao menos cinco caracteres")
-              .max(10, "Senha deve ter no máximo dez caracteres")
-              .required("Required"),
+              .min(5, 'Senha deve ter ao menos cinco caracteres')
+              .max(10, 'Senha deve ter no máximo dez caracteres')
+              .required('Required'),
           })}
           onSubmit={(values, { setSubmitting }) => {
-            console.log(values);
+            const { email, password } = values;
 
-            dispatch(setTokenState(values.email));
+            const token = handleLoginRequest(email, password);
+
+            console.log(token);
+
+            // dispatch(setTokenState(token));
           }}
         >
           {({ isSubmitting }) => (
