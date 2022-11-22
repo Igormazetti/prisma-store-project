@@ -22,6 +22,8 @@ export default class UserController {
   public async login(request: Request, response: Response) {
     const { email, password } = request.body;
 
+    console.log(request.body);
+
     const loginService = container.resolve(LoginService);
 
     const user = await loginService.execute(email, password);
