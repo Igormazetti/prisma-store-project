@@ -1,6 +1,7 @@
 import "../../styles/globals.css";
 import type { AppProps } from "next/app";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { wrapper } from "../redux/store/store";
 
 const colors = {
   brand: {
@@ -20,4 +21,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);
