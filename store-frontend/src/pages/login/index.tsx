@@ -2,11 +2,15 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Router from "next/router";
+import { setTokenState } from "../../redux/store/tokenSlice";
+import { useDispatch } from "react-redux";
 
 export default function Login() {
   const redirectCriarConta = () => {
     Router.push("/criarconta");
   };
+
+  const dispatch = useDispatch();
 
   return (
     <Flex
@@ -42,10 +46,9 @@ export default function Login() {
               .required("Required"),
           })}
           onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              setSubmitting(false);
-            }, 400);
+            console.log(values);
+
+            dispatch(setTokenState(values.email));
           }}
         >
           {({ isSubmitting }) => (
@@ -75,17 +78,6 @@ export default function Login() {
                 bg="#58a5bd"
               >
                 Entrar
-              </Box>
-              <Box
-                h="50"
-                color="#000102"
-                bg="#58a5bd"
-                w="100%"
-                as="button"
-                type="button"
-                onClick={redirectCriarConta}
-              >
-                Criar conta
               </Box>
             </Form>
           )}
