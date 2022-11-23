@@ -7,17 +7,15 @@ import { useDispatch } from 'react-redux';
 import { login } from 'service/login';
 
 export default function Login() {
+  const dispatch = useDispatch();
   const redirectDashboard = () => {
     Router.push('/dashboard');
   };
 
   const handleLoginRequest = async (email: string, password: string) => {
-    const user = await login(email, password);
-    console.log(user);
-    return user.token;
+    const data = await login(email, password);
+    dispatch(setTokenState(data.token));
   };
-
-  const dispatch = useDispatch();
 
   return (
     <Flex
@@ -52,15 +50,9 @@ export default function Login() {
               .max(10, 'Senha deve ter no máximo dez caracteres')
               .required('Required'),
           })}
-          onSubmit={(values, { setSubmitting }) => {
-            const { email, password } = values;
-
-            const token = handleLoginRequest(email, password);
-
-            console.log(token);
-
-            // dispatch(setTokenState(token));
-          }}
+          onSubmit={({ email, password }) =>
+            handleLoginRequest(email, password)
+          }
         >
           {({ isSubmitting }) => (
             <Form className="formularios">
