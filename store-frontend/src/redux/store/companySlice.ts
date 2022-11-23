@@ -3,21 +3,27 @@ import { AppState } from './store';
 
 // Type for our state
 export interface CompanyState {
-  companyStateId: number;
+  companyState: {
+    id: number;
+    name: string;
+  };
 }
 
 // Initial state
 const initialState: CompanyState = {
-  companyStateId: 0,
+  companyState: {
+    id: 0,
+    name: '',
+  },
 };
 
 // Actual Slice
 export const companySlice = createSlice({
-  name: 'companyId',
+  name: 'company',
   initialState: initialState,
   reducers: {
     setCompanyState(state, action) {
-      state.companyStateId = action.payload;
+      state.companyState = action.payload;
     },
   },
 });
@@ -25,6 +31,6 @@ export const companySlice = createSlice({
 export const { setCompanyState } = companySlice.actions;
 
 export const selectCompanyState = (state: AppState) =>
-  state.companyId.companyStateId;
+  state.company.companyState;
 
 export default companySlice.reducer;

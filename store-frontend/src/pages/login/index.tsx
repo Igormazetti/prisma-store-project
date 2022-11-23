@@ -1,20 +1,31 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 import { setTokenState } from 'redux/store/tokenSlice';
+import { setCompanyState } from 'redux/store/companySlice';
 import { useDispatch } from 'react-redux';
 import { login } from 'service/login';
+import { getCompany } from 'service/getCompany';
+import { routes } from 'routes';
 
 export default function Login() {
   const dispatch = useDispatch();
-  const redirectDashboard = () => {
-    Router.push('/dashboard');
+
+  const { push } = useRouter();
+
+  const handleRedirect = (route: string) => {
+    push({ pathname: route });
   };
 
   const handleLoginRequest = async (email: string, password: string) => {
     const data = await login(email, password);
-    dispatch(setTokenState(data.token));
+    if (data.user.email && data.user.password) {
+      dispatch(setTokenState(data.token));
+      const companyData = await getCompany(data.user.companyId);
+      dispatch(setCompanyState(companyData));
+      handleRedirect(routes.dashboard);
+    }
   };
 
   return (
