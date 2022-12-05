@@ -13,7 +13,7 @@ export default function ViewWrapperLayout({
   title,
 }: ViewWrapperLayoutProps) {
   return (
-    <>
+    <Box h="100vh">
       <Head>
         <title>Prisma Store Project</title>
       </Head>
@@ -25,17 +25,17 @@ export default function ViewWrapperLayout({
           borderBottom="0.1rem solid rgba(165, 165, 165, 0.1)"
           color="#FFF"
           pos="absolute"
-          h="6rem"
+          h="60px"
           w="100%"
         >
           <Text>{title}</Text>
         </Flex>
         <Flex>
-          <Box ml="30rem" mt="12rem">
+          <Box ml="300px" mt="60px">
             {children}
           </Box>
         </Flex>
       </Box>
-    </>
+    </Box>
   );
 }
