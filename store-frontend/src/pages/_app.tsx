@@ -1,13 +1,13 @@
-import "../../styles/globals.css";
-import type { AppProps } from "next/app";
-import { ChakraProvider, extendTheme } from "@chakra-ui/react";
-import { wrapper } from "../redux/store/store";
+import '../../styles/globals.css';
+import type { AppProps } from 'next/app';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { wrapper } from '../redux/store/store';
 
 const colors = {
   brand: {
-    900: "#1a365d",
-    800: "#153e75",
-    700: "#2a69ac",
+    900: '#1a365d',
+    800: '#153e75',
+    700: '#2a69ac',
   },
 };
 

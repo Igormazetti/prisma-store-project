@@ -1,6 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { AppState } from "./store";
-import { HYDRATE } from "next-redux-wrapper";
+import { createSlice } from '@reduxjs/toolkit';
+import { AppState } from './store';
 
 // Type for our state
 export interface TokenState {
@@ -9,12 +8,12 @@ export interface TokenState {
 
 // Initial state
 const initialState: TokenState = {
-  tokenState: "",
+  tokenState: '',
 };
 
 // Actual Slice
 export const tokenSlice = createSlice({
-  name: "token",
+  name: 'token',
   initialState: initialState,
   reducers: {
     setTokenState(state, action) {

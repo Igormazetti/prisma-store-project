@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
+import { container } from 'tsyringe';
 import CreateUserService from '../services/CreateUser.service';
 import LoginService from '../services/Login.service';
-import { container } from 'tsyringe';
 
 export default class UserController {
   public async create(request: Request, response: Response) {
@@ -20,16 +20,20 @@ export default class UserController {
   }
 
   public async login(request: Request, response: Response) {
-    const { email, password } = request.body;
+    try {
+      const { email, password } = request.body;
 
-    const loginService = container.resolve(LoginService);
+      const loginService = container.resolve(LoginService);
 
-    const user = await loginService.execute(email, password);
+      const user = await loginService.execute(email, password);
 
-    if (user.error) {
-      return response.status(user.error).json(user.message);
+      if (user.error) {
+        return response.status(user.error).json(user.message);
+      }
+
+      return response.status(200).json(user);
+    } catch (e) {
+      console.log(e);
     }
-
-    return response.status(200).json(user);
   }
 }
