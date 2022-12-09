@@ -41,3 +41,7 @@ a {
 .form-label {
   max-height: 80px;
 }
+
+#main-content {
+  max-width: calc(100vw - 19rem);
+}

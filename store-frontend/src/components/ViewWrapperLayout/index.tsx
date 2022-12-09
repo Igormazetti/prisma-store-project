@@ -13,27 +13,30 @@ export default function ViewWrapperLayout({
   title,
 }: ViewWrapperLayoutProps) {
   return (
-    <Box h="100vh">
+    <Box id="box-viewwrapper">
       <Head>
         <title>Prisma Store Project</title>
       </Head>
-      <Box w="300px" h="100vh" bg="#242424">
-        <Flex
-          as="header"
-          bg="#242424"
-          direction="row"
-          borderBottom="0.1rem solid rgba(165, 165, 165, 0.1)"
-          color="#FFF"
-          pos="absolute"
-          h="60px"
-          w="100%"
-        >
-          <Text>{title}</Text>
-        </Flex>
-        <Flex>
-          <Box ml="300px" mt="60px">
-            {children}
-          </Box>
+      <Box w="19rem" h="100vh" bg="#242424">
+        <Flex w="100vw" id="main-content" direction="column">
+          <Flex
+            as="header"
+            bg="#242424"
+            direction="row"
+            borderBottom="0.1rem solid rgba(165, 165, 165, 0.1)"
+            color="#FFF"
+            ml="19rem"
+            h="60px"
+            pos="fixed"
+            overflow="hidden"
+            w="100%"
+            align="center"
+          >
+            <Text mt="40px" ml="40px">
+              {title}
+            </Text>
+          </Flex>
+          <Box ml="19rem">{children}</Box>
         </Flex>
       </Box>
     </Box>
