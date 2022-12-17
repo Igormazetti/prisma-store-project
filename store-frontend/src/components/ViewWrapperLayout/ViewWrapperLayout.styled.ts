@@ -11,33 +11,16 @@ export const Sidebar = styled.section`
 `;
 
 export const ChildrenContainer = styled.div`
-  margin-left: 30rem;
-  margin-top: 12rem;
+  margin-left: 19rem;
+  width: 100vw;
 `;
 
-export const Header = styled.header`
-  background: #242424;
-  display: flex;
-  flex-direction: row;
-  border-bottom: 0.1rem solid rgba(165, 165, 165, 0.1);
-  height: 7rem;
-  text-align: left;
-  position: absolute;
-  width: 100%;
-
-  h1 {
-    margin-top: 5rem;
-    margin-left: 40rem;
-  }
-`;
-
-export const AsideButonsContainer = styled.div`
+export const AsideContainer = styled.div`
   display: flex;
   background-color: #242424;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 3.2rem;
+  padding: 1rem;
   overflow: hidden;
   position: fixed;
   min-width: 19rem;
@@ -45,13 +28,40 @@ export const AsideButonsContainer = styled.div`
   height: 100vh;
 `;
 
+export const ButtonContainer = styled.div`
+  display: flex;
+  gap: 15px;
+  background-color: #242424;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 300px;
+`;
+
+export const LogoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: #242424;
+  justify-content: center;
+  align-items: center;
+  width: 17rem;
+  height: 16rem;
+`;
+
+export const Logo = styled.img`
+  width: 17rem;
+  height: 16rem;
+`;
+
 export const AsideButton = styled.button`
   background-color: #fff;
   color: #242424;
-  width: 60px;
+  width: 17rem;
   height: 40px;
+  font-weight: 600;
 
   :hover {
+    opacity: 0.8;
     cursor: pointer;
   }
 `;

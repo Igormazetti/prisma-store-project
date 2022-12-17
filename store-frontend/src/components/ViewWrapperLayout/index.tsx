@@ -4,9 +4,11 @@ import {
   Main,
   Sidebar,
   ChildrenContainer,
-  Header,
-  AsideButonsContainer,
+  AsideContainer,
   AsideButton,
+  ButtonContainer,
+  LogoContainer,
+  Logo,
 } from './ViewWrapperLayout.styled';
 
 type ViewWrapperLayoutProps = {
@@ -18,21 +20,25 @@ export default function ViewWrapperLayout({
   children,
   title,
 }: ViewWrapperLayoutProps) {
+  const goblin =
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD6DB7ZP_sHF2U7ePMDemT2vmMFtJqYTtU744iMDE2XwXkJR2kECzs11A2xutUMpMSmoM&usqp=CAU';
   return (
     <>
       <Head>
         <title>Prisma Store Project</title>
       </Head>
       <Main>
-        <Header>
-          <h1>{title}</h1>
-        </Header>
         <Sidebar>
-          <AsideButonsContainer>
-            <AsideButton>Produtos</AsideButton>
-            <AsideButton>Vendas</AsideButton>
-            <AsideButton>Usuário</AsideButton>
-          </AsideButonsContainer>
+          <AsideContainer>
+            <LogoContainer>
+              <Logo src={goblin} />
+            </LogoContainer>
+            <ButtonContainer>
+              <AsideButton>Produtos</AsideButton>
+              <AsideButton>Vendas</AsideButton>
+              <AsideButton>Usuário</AsideButton>
+            </ButtonContainer>
+          </AsideContainer>
           <ChildrenContainer>{children}</ChildrenContainer>
         </Sidebar>
       </Main>
