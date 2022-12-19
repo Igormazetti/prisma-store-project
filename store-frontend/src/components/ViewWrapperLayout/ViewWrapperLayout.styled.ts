@@ -17,10 +17,9 @@ export const ChildrenContainer = styled.div`
 
 export const AsideContainer = styled.div`
   display: flex;
-  background-color: #242424;
+  background-color: #737070;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
   overflow: hidden;
   position: fixed;
   min-width: 19rem;
@@ -31,7 +30,7 @@ export const AsideContainer = styled.div`
 export const ButtonContainer = styled.div`
   display: flex;
   gap: 15px;
-  background-color: #242424;
+  background-color: transparent;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -41,7 +40,7 @@ export const ButtonContainer = styled.div`
 export const LogoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #242424;
+  background-color: transparent;
   justify-content: center;
   align-items: center;
   width: 17rem;
@@ -49,19 +48,21 @@ export const LogoContainer = styled.div`
 `;
 
 export const Logo = styled.img`
-  width: 17rem;
-  height: 16rem;
+  width: 14rem;
+  height: 12rem;
 `;
 
 export const AsideButton = styled.button`
-  background-color: #fff;
-  color: #242424;
+  background-color: transparent;
+  color: #fff;
   width: 17rem;
   height: 40px;
   font-weight: 600;
 
   :hover {
     opacity: 0.8;
+    background-color: #fff;
+    color: black;
     cursor: pointer;
   }
 `;

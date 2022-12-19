@@ -13,12 +13,10 @@ import {
 
 type ViewWrapperLayoutProps = {
   children: React.ReactNode;
-  title: string;
 };
 
 export default function ViewWrapperLayout({
   children,
-  title,
 }: ViewWrapperLayoutProps) {
   const goblin =
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD6DB7ZP_sHF2U7ePMDemT2vmMFtJqYTtU744iMDE2XwXkJR2kECzs11A2xutUMpMSmoM&usqp=CAU';
@@ -34,7 +32,7 @@ export default function ViewWrapperLayout({
               <Logo src={goblin} />
             </LogoContainer>
             <ButtonContainer>
-              <AsideButton>Produtos</AsideButton>
+              <AsideButton data-testid="produtos-btn">Produtos</AsideButton>
               <AsideButton>Vendas</AsideButton>
               <AsideButton>Usuário</AsideButton>
             </ButtonContainer>
