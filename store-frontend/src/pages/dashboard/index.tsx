@@ -4,9 +4,9 @@ import ViewWrapperLayout from '../../components/ViewWrapperLayout';
 
 export default function Dashboard() {
   return (
-    <ViewWrapperLayout data-testid="view-wrapper">
+    <ViewWrapperLayout>
       <Box>
-        <Text>Dashboard Page</Text>;
+        <h1>Dashboard Page</h1>;
       </Box>
     </ViewWrapperLayout>
   );

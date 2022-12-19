@@ -25,7 +25,7 @@ export default function ViewWrapperLayout({
       <Head>
         <title>Prisma Store Project</title>
       </Head>
-      <Main>
+      <Main data-testid="view-wrapper">
         <Sidebar>
           <AsideContainer>
             <LogoContainer>
