@@ -17,7 +17,7 @@ export const ChildrenContainer = styled.div`
 
 export const AsideContainer = styled.div`
   display: flex;
-  background-color: #737070;
+  background-color: #55af89;
   flex-direction: column;
   align-items: center;
   overflow: hidden;

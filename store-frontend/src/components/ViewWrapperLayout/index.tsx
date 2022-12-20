@@ -26,15 +26,15 @@ export default function ViewWrapperLayout({
         <title>Prisma Store Project</title>
       </Head>
       <Main data-testid="view-wrapper">
-        <Sidebar>
+        <Sidebar data-testid="view-wrapper-sidebar">
           <AsideContainer>
             <LogoContainer>
-              <Logo src={goblin} />
+              <Logo data-testid="view-wrapper-logo" src={goblin} />
             </LogoContainer>
             <ButtonContainer>
               <AsideButton data-testid="produtos-btn">Produtos</AsideButton>
-              <AsideButton>Vendas</AsideButton>
-              <AsideButton>Usuário</AsideButton>
+              <AsideButton data-testid="vendas-btn">Vendas</AsideButton>
+              <AsideButton data-testid="usuario-btn">Usuário</AsideButton>
             </ButtonContainer>
           </AsideContainer>
           <ChildrenContainer>{children}</ChildrenContainer>
