@@ -6,11 +6,12 @@ export const MainContainer = styled.div`
   width: 100vw;
   height: 100vh;
 `;
+
 export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
   background-color: #55af89;
-  height: 150px;
+  height: 200px;
   width: calc(100vw - 19rem);
 `;

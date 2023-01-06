@@ -3,11 +3,13 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useRouter } from 'next/router';
 import { setTokenState } from 'redux/store/tokenSlice';
+import { setUserState } from 'redux/store/userSlice';
 import { setCompanyState } from 'redux/store/companySlice';
 import { useDispatch } from 'react-redux';
 import { login } from 'service/login';
 import { getCompany } from 'service/getCompany';
 import { routes } from 'routes';
+import { setCookie, parseCookies, destroyCookie } from 'nookies';
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -22,7 +24,13 @@ export default function Login() {
     const data = await login(email, password);
     if (data.user.email && data.user.password) {
       dispatch(setTokenState(data.token));
+      dispatch(setUserState(data.user.name));
+      setCookie(undefined, 'token', data.token, {
+        maxAge: 2592000,
+      });
+
       const companyData = await getCompany(data.user.companyId);
+
       dispatch(setCompanyState(companyData));
       handleRedirect(routes.dashboard);
     }

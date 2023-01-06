@@ -66,3 +66,18 @@ export const AsideButton = styled.button`
     cursor: pointer;
   }
 `;
+
+export const ExitButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 7rem;
+  height: 50px;
+  margin-top: 15rem;
+  color: #fff;
+
+  :hover {
+    color: black;
+  }
+`;

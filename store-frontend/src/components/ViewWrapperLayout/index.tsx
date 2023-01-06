@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
+import { FiLogOut } from 'react-icons/fi'
+
 import {
   Main,
   Sidebar,
@@ -9,6 +11,7 @@ import {
   ButtonContainer,
   LogoContainer,
   Logo,
+  ExitButton,
 } from './ViewWrapperLayout.styled';
 
 type ViewWrapperLayoutProps = {
@@ -36,6 +39,11 @@ export default function ViewWrapperLayout({
               <AsideButton data-testid="vendas-btn">Vendas</AsideButton>
               <AsideButton data-testid="usuario-btn">Usuário</AsideButton>
             </ButtonContainer>
+              <ExitButton>
+                <img src="" alt="" />
+                <FiLogOut size={20} />
+                Sair
+              </ExitButton>
           </AsideContainer>
           <ChildrenContainer>{children}</ChildrenContainer>
         </Sidebar>

@@ -7,7 +7,5 @@ export async function getCompany(id: number): Promise<User> {
 
   const { data } = request;
 
-  console.log(data);
-
   return data;
 }
