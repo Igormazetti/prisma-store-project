@@ -22,8 +22,7 @@ export const AsideContainer = styled.div`
   align-items: center;
   overflow: hidden;
   position: fixed;
-  min-width: 19rem;
-  max-width: 19rem;
+  width: 19rem;
   height: 100vh;
 `;
 
@@ -76,6 +75,10 @@ export const ExitButton = styled.button`
   height: 50px;
   margin-top: 15rem;
   color: #fff;
+
+  @media screen and (max-height: 1399px) {
+    margin-top: 10rem;
+  }
 
   :hover {
     color: black;

@@ -56,7 +56,6 @@ export default function ViewWrapperLayout({
               <AsideButton data-testid="usuario-btn">Usuário</AsideButton>
             </ButtonContainer>
             <ExitButton onClick={handleLogout}>
-              <img src="" alt="" />
               <FiLogOut size={20} />
               Sair
             </ExitButton>
