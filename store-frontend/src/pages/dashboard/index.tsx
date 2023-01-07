@@ -1,5 +1,5 @@
 import React from 'react';
-import { MainContainer, HeaderContainer } from './dashboard.styled';
+import { MainContainer } from './dashboard.styled';
 import ViewWrapperLayout from '../../components/ViewWrapperLayout';
 import Header from 'components/Header';
 import { GetServerSideProps } from 'next';

@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import { login } from 'service/login';
 import { getCompany } from 'service/getCompany';
 import { routes } from 'routes';
-import { setCookie, parseCookies, destroyCookie } from 'nookies';
+import { setCookie } from 'nookies';
 
 export default function Login() {
   const dispatch = useDispatch();
