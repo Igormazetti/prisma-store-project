@@ -39,6 +39,10 @@ export default function ViewWrapperLayout({
     push('/');
   };
 
+  const handleRedirect = (route: string) => {
+    push({ pathname: route })
+  }
+
   return (
     <>
       <Head>
@@ -51,7 +55,7 @@ export default function ViewWrapperLayout({
               <Logo data-testid="view-wrapper-logo" src={goblin} />
             </LogoContainer>
             <ButtonContainer>
-              <AsideButton data-testid="produtos-btn">Produtos</AsideButton>
+              <AsideButton data-testid="produtos-btn" onClick={() => handleRedirect("produtos")}>Produtos</AsideButton>
               <AsideButton data-testid="vendas-btn">Vendas</AsideButton>
               <AsideButton data-testid="usuario-btn">Usuário</AsideButton>
             </ButtonContainer>

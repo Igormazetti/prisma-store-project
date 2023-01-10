@@ -1,3 +1,5 @@
+import { string } from 'yup';
+
 type User = {
   user: {
     id: number;
@@ -7,4 +9,14 @@ type User = {
     companyId: number;
   };
   token: string;
+};
+
+type Product = {
+  id: number;
+  createdAt: string;
+  updatedAt: string;
+  title: string;
+  quantity: number;
+  value: number;
+  companyId: number;
 };

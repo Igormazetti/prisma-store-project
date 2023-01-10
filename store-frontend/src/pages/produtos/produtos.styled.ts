@@ -12,13 +12,13 @@ export const SearchContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-color: transparent;
+  height: 100px;
+  margin-right: 19rem;
 `;
 
-export const HeaderContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #55af89;
-  height: 150px;
-  width: calc(100vw - 19rem);
+export const IconButton = styled.button`
+  height: 50px;
+  margin-left: -37px;
+  z-index: 2;
+  background-color: transparent;
 `;
