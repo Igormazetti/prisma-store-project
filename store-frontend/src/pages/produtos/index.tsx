@@ -6,19 +6,22 @@ import {
   IconButton,
   SearchInput,
   ProductsContainer,
-} from './produtos.styled';
+} from './produtos.styles';
 import Header from 'components/Header';
 import { getProducts } from 'service/products';
 import { Product } from '@types';
 import { GoSearch } from 'react-icons/go';
 import ProductCard from 'components/ProductCard';
+import { selectCompanyState } from 'redux/store/companySlice';
+import { useSelector } from 'react-redux';
 
 export default function Produtos() {
   const [products, setProducts] = useState<Product[]>();
+  const { id } = useSelector(selectCompanyState);
 
   useEffect(() => {
     const getAllProducts = async () => {
-      const data = await getProducts();
+      const data = await getProducts(id);
       setProducts(data);
     };
 

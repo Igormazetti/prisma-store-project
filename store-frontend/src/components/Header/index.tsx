@@ -3,7 +3,7 @@ import {
   HeaderContainer,
   HelloContainer,
   CompanyContainer,
-} from './Header.styled';
+} from './Header.styles';
 import { FaUserCircle } from 'react-icons/fa';
 import { selectUserState } from 'redux/store/userSlice';
 import { selectCompanyState } from 'redux/store/companySlice';
