@@ -11,12 +11,14 @@ export const CardContainer = styled.div`
 
 export const CardImage = styled.img`
   margin-top: 5px;
-  width: 80%;
-  height: 150px;
-  margin-left: 25px;
+  width: 90%;
+  height: 180px;
+  margin-left: 12px;
 `;
 
 export const CardText = styled.span`
   font-size: 0.8rem;
   margin-left: 15px;
+  margin-top: 5px;
+  height: 20px;
 `;

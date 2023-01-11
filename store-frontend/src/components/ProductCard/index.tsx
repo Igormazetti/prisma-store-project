@@ -11,7 +11,7 @@ export default function ProductCard({ data }: Props) {
     <CardContainer key={data.id}>
       <CardImage src={data?.imgUrl} alt="produto sem imagem" />
       <CardText>{data.title}</CardText>
-      <CardText>{data.subtitle}</CardText>
+      {data.subtitle ? <CardText>{data.subtitle}</CardText> : null}
       <CardText className="estoque">
         Quantidade em estoque: {data.quantity}
       </CardText>
