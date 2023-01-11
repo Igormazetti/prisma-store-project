@@ -18,5 +18,7 @@ type Product = {
   title: string;
   quantity: number;
   value: number;
+  imgUrl?: string;
   companyId: number;
+  subtitle?: string;
 };

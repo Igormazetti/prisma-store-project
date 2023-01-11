@@ -16,9 +16,35 @@ export const SearchContainer = styled.div`
   margin-right: 19rem;
 `;
 
+export const SearchInput = styled.input`
+  width: 450px;
+  height: 50px;
+  outline: 2px solid #878d8d;
+  outline-offset: 2px;
+  position: relative;
+  border-radius: 25px;
+  font-size: 18px;
+  padding: 0 10px;
+
+  ::placeholder {
+    opacity: 1;
+    color: #969b9b;
+  }
+
+  :focus {
+    outline: 2px solid black;
+  }
+`;
+
 export const IconButton = styled.button`
   height: 50px;
   margin-left: -37px;
   z-index: 2;
   background-color: transparent;
+`;
+
+export const ProductsContainer = styled.div`
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  gap: 50px;
 `;
