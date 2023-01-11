@@ -14,6 +14,7 @@ export const SearchContainer = styled.div`
   background-color: transparent;
   height: 100px;
   margin-right: 19rem;
+  margin-bottom: 30px;
 `;
 
 export const SearchInput = styled.input`
@@ -45,6 +46,8 @@ export const IconButton = styled.button`
 
 export const ProductsContainer = styled.div`
   display: grid;
-  grid-template-columns: 200px 200px 200px;
+  grid-template-columns: 300px 300px 300px;
   gap: 50px;
+  justify-content: center;
+  margin-left: -19rem;
 `;

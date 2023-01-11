@@ -1,5 +1,6 @@
 import { Product } from '@types';
 import React from 'react';
+import { CardContainer, CardImage, CardText } from './ProductCard.styles';
 
 type Props = {
   data: Product;
@@ -7,14 +8,16 @@ type Props = {
 
 export default function ProductCard({ data }: Props) {
   return (
-    <div key={data.id}>
-      <img src={data?.imgUrl} alt="produto sem imagem" />
-      <span>{data.title}</span>
-      <span>{data.subtitle}</span>
-      <span>Quantidade em estoque: {data.quantity}</span> <br />
-      <span>
+    <CardContainer key={data.id}>
+      <CardImage src={data?.imgUrl} alt="produto sem imagem" />
+      <CardText>{data.title}</CardText>
+      <CardText>{data.subtitle}</CardText>
+      <CardText className="estoque">
+        Quantidade em estoque: {data.quantity}
+      </CardText>
+      <CardText>
         <strong>R$ {data.value}</strong>
-      </span>
-    </div>
+      </CardText>
+    </CardContainer>
   );
 }

@@ -47,3 +47,7 @@ a {
 #main-content {
   max-width: calc(100vw - 19rem);
 }
+
+.estoque {
+  color: #00a650;
+}
