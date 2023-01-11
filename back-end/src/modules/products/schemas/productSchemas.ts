@@ -6,6 +6,8 @@ export const createProductSchema = celebrate({
     quantity: Joi.number().required(),
     companyId: Joi.number().required(),
     value: Joi.number().required(),
+    imgUrl: Joi.string(),
+    subtitle: Joi.string(),
   },
 });
 

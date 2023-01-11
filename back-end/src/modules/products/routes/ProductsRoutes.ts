@@ -12,6 +12,11 @@ const productController = new ProductController();
 productRouter.post('/', createProductSchema, productController.create);
 productRouter.get('/', productController.getAll);
 productRouter.get('/:id', getProductByIdSchema, productController.getById);
+productRouter.get(
+  '/company/:id',
+  getProductByIdSchema,
+  productController.getByCompanyId,
+);
 productRouter.put('/', updateProductSchema, productController.update);
 
 export default productRouter;
