@@ -14,21 +14,33 @@ import { GoSearch } from 'react-icons/go';
 import ProductCard from 'components/ProductCard';
 import { selectCompanyState } from 'redux/store/companySlice';
 import { useSelector } from 'react-redux';
+import Pagination from 'components/Pagination';
+import { paginate } from 'service/paginate';
 
 export default function Produtos() {
   const [products, setProducts] = useState<Product[]>();
+  const [productsBk, setProductsBk] = useState<Product[]>();
+  const [currentPage, setCurrentPage] = useState(1);
   const { id } = useSelector(selectCompanyState);
+  const pageSize = 6;
 
   useEffect(() => {
     const getAllProducts = async () => {
       const data = await getProducts(id);
-      setProducts(data);
+      setProducts(paginate(data, currentPage, pageSize));
+      setProductsBk(data);
     };
 
     getAllProducts();
   }, []);
 
-  const teste = () => console.log(products);
+  useEffect(() => {
+    setProducts(paginate(productsBk, currentPage, pageSize));
+  }, [currentPage]);
+
+  const onPageChange = (page: number) => {
+    setCurrentPage(page);
+  };
 
   return (
     <ViewWrapperLayout>
@@ -36,7 +48,7 @@ export default function Produtos() {
         <Header />
         <SearchContainer>
           <SearchInput placeholder="Busque pelo nome ou apelido" />
-          <IconButton onClick={teste}>
+          <IconButton>
             <GoSearch size={28} />
           </IconButton>
         </SearchContainer>
@@ -47,6 +59,12 @@ export default function Produtos() {
             <span>Não há produtos cadastrados</span>
           )}
         </ProductsContainer>
+        <Pagination
+          items={productsBk?.length} // 100
+          currentPage={currentPage} // 1
+          pageSize={pageSize} // 10
+          onPageChange={onPageChange}
+        />
       </MainContainer>
     </ViewWrapperLayout>
   );
