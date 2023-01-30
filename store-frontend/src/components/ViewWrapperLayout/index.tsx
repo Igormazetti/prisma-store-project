@@ -36,6 +36,7 @@ export default function ViewWrapperLayout({
     destroyCookie(undefined, 'token', { path: '/' });
     dispatch(setTokenState(''));
     dispatch(setUserState(''));
+    localStorage.clear();
     push('/');
   };
 
