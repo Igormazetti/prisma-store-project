@@ -16,12 +16,14 @@ export default function Header() {
   const { name } = useSelector(selectCompanyState);
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user') || '');
-    const empresa = JSON.parse(localStorage.getItem('company') || '');
+    const user = localStorage.getItem('userName') || '';
+    const companyData = JSON.parse(
+      localStorage.getItem('companyData') as string,
+    );
 
-    if (user.length > 1 && empresa.name) {
+    if (user.length > 1 && companyData.name) {
       setUser(user);
-      setCompany(empresa.name);
+      setCompany(companyData.name);
     } else {
       setUser(userName);
       setCompany(name);

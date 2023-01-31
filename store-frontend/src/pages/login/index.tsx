@@ -35,7 +35,9 @@ export default function Login() {
 
       localStorage.setItem('token', data.token);
       localStorage.setItem('userName', data.user.name);
-      localStorage.setItem('companyName', JSON.stringify(companyData));
+      localStorage.setItem('companyName', JSON.stringify(companyData.name));
+      localStorage.setItem('companyId', JSON.stringify(companyData.id));
+      localStorage.setItem('companyData', JSON.stringify(companyData));
 
       handleRedirect(routes.dashboard);
     }

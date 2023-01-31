@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { User } from '@types';
+import { Company } from '@types';
 
-export async function getCompany(id: number): Promise<User> {
+export async function getCompany(id: number): Promise<Company> {
   const url = `http://localhost:6060/company/${id}`;
 
   const request = await axios.get(url);

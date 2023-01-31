@@ -11,6 +11,11 @@ type User = {
   token: string;
 };
 
+type Company = {
+  id: number;
+  name: string;
+};
+
 type Product = {
   id: number;
   createdAt: string;

@@ -21,12 +21,12 @@ export default function Produtos() {
   const [products, setProducts] = useState<Product[]>();
   const [productsBk, setProductsBk] = useState<Product[]>();
   const [currentPage, setCurrentPage] = useState(1);
-  const { id } = useSelector(selectCompanyState);
   const pageSize = 6;
 
   useEffect(() => {
     const getAllProducts = async () => {
-      const data = await getProducts(id);
+      const company = JSON.parse(localStorage.getItem('companyData') as string);
+      const data = await getProducts(company.id);
       setProducts(paginate(data, currentPage, pageSize));
       setProductsBk(data);
     };
