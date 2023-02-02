@@ -1,5 +1,15 @@
 import ProductsRepository from '../repository/ProductsRepository';
 
+interface IProducts {
+  id?: number;
+  title: string;
+  quantity: number;
+  companyId: number;
+  value: number;
+  imgUrl?: string;
+  subtitle?: string;
+}
+
 export default class CreateProductService {
   private productsRepository: ProductsRepository;
 
@@ -7,18 +17,8 @@ export default class CreateProductService {
     this.productsRepository = new ProductsRepository();
   }
 
-  public async execute(
-    title: string,
-    quantity: number,
-    companyId: number,
-    value: number,
-  ) {
-    const product = await this.productsRepository.createProduct({
-      title,
-      quantity,
-      companyId,
-      value,
-    });
+  public async execute(data: IProducts) {
+    const product = await this.productsRepository.createProduct(data);
 
     return product;
   }

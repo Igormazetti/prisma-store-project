@@ -17,7 +17,7 @@ import {
   LogoContainer,
   Logo,
   ExitButton,
-} from './ViewWrapperLayout.styled';
+} from './ViewWrapperLayout.styles';
 
 type ViewWrapperLayoutProps = {
   children: React.ReactNode;
@@ -36,7 +36,12 @@ export default function ViewWrapperLayout({
     destroyCookie(undefined, 'token', { path: '/' });
     dispatch(setTokenState(''));
     dispatch(setUserState(''));
+    localStorage.clear();
     push('/');
+  };
+
+  const handleRedirect = (route: string) => {
+    push({ pathname: route });
   };
 
   return (
@@ -51,7 +56,12 @@ export default function ViewWrapperLayout({
               <Logo data-testid="view-wrapper-logo" src={goblin} />
             </LogoContainer>
             <ButtonContainer>
-              <AsideButton data-testid="produtos-btn">Produtos</AsideButton>
+              <AsideButton
+                data-testid="produtos-btn"
+                onClick={() => handleRedirect('produtos')}
+              >
+                Produtos
+              </AsideButton>
               <AsideButton data-testid="vendas-btn">Vendas</AsideButton>
               <AsideButton data-testid="usuario-btn">Usuário</AsideButton>
             </ButtonContainer>

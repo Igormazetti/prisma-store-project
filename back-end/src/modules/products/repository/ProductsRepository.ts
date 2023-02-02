@@ -7,6 +7,8 @@ interface IProducts {
   quantity: number;
   companyId: number;
   value: number;
+  imgUrl?: string;
+  subtitle?: string;
 }
 
 export default class ProductsRepository {
@@ -15,19 +17,9 @@ export default class ProductsRepository {
     this.db = prisma.products;
   }
 
-  public async createProduct({
-    title,
-    quantity,
-    companyId,
-    value,
-  }: IProducts): Promise<Products> {
+  public async createProduct(data: IProducts): Promise<Products> {
     const product = await this.db.create({
-      data: {
-        title,
-        quantity,
-        companyId,
-        value,
-      },
+      data,
     });
 
     return product;
@@ -59,6 +51,16 @@ export default class ProductsRepository {
       },
       where: {
         id,
+      },
+    });
+
+    return product;
+  }
+
+  public async getProductByCompanyId(id: number): Promise<Products[] | null> {
+    const product = await this.db.findMany({
+      where: {
+        companyId: id,
       },
     });
 

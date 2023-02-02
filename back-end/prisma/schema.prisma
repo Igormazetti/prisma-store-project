@@ -19,6 +19,8 @@ model Products {
   value     Float
   Company   Company  @relation(fields: [companyId], references: [id])
   companyId Int
+  imgUrl    String?  @default("")
+  subtitle  String?  @default("")
 }
 
 model Company {

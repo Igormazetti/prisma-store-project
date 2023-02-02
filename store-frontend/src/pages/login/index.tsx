@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useRouter } from 'next/router';
@@ -23,15 +23,22 @@ export default function Login() {
   const handleLoginRequest = async (email: string, password: string) => {
     const data = await login(email, password);
     if (data.user.email && data.user.password) {
-      dispatch(setTokenState(data.token));
-      dispatch(setUserState(data.user.name));
       setCookie(undefined, 'token', data.token, {
         maxAge: 2592000,
       });
 
       const companyData = await getCompany(data.user.companyId);
 
+      dispatch(setTokenState(data.token));
+      dispatch(setUserState(data.user.name));
       dispatch(setCompanyState(companyData));
+
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('userName', data.user.name);
+      localStorage.setItem('companyName', JSON.stringify(companyData.name));
+      localStorage.setItem('companyId', JSON.stringify(companyData.id));
+      localStorage.setItem('companyData', JSON.stringify(companyData));
+
       handleRedirect(routes.dashboard);
     }
   };
