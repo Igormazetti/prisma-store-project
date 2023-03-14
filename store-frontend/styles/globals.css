@@ -24,12 +24,16 @@ a {
   display: none;
 }
 
+#main-content {
+  max-width: calc(100vw - 19rem);
+}
+
 .formularios {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  /* gap: 50px; */
   color: black;
 }
 
@@ -41,9 +45,24 @@ a {
 }
 
 .form-label {
-  max-height: 80px;
+  font-weight: bold;
 }
 
-#main-content {
-  max-width: calc(100vw - 19rem);
+.input-container {
+  height: 150px;
+}
+
+.error-message-input {
+  color: red;
+}
+
+#submit-btn-login {
+  font-weight: bold;
+  background-color: #58a5bd;
+  width: 100%;
+}
+
+#submit-btn-login:hover {
+  color: #fff;
+  background-color: #0d5ede;
 }

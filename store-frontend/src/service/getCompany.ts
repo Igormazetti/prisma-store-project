@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { BACKEND_URL } from '../constants';
 
 export async function getCompany(id: number): Promise<User> {
-  const url = `http://localhost:6060/company/${id}`;
+  const url = `${BACKEND_URL}/company/${id}`;
 
   const request = await axios.get(url);
 

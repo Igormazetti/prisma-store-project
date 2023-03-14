@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex, Text, Button } from '@chakra-ui/react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useRouter } from 'next/router';
@@ -21,7 +21,10 @@ export default function Login() {
   };
 
   const handleLoginRequest = async (email: string, password: string) => {
+    console.log(email, password);
+    
     const data = await login(email, password);
+
     if (data.user.email && data.user.password) {
       dispatch(setTokenState(data.token));
       dispatch(setUserState(data.user.name));
@@ -60,47 +63,50 @@ export default function Login() {
       >
         <Formik
           initialValues={{ email: '', password: '' }}
-          validationSchema={Yup.object({
-            email: Yup.string()
-              .email('Invalid email address')
-              .required('Required'),
-            password: Yup.string()
-              .min(5, 'Senha deve ter ao menos cinco caracteres')
-              .max(10, 'Senha deve ter no máximo dez caracteres')
-              .required('Required'),
-          })}
+          validationSchema={
+            Yup.object({
+              email: Yup.string()
+                .email('Invalid email address')
+                .required('Required'),
+              password: Yup.string()
+                .min(5, 'Senha deve ter ao menos cinco caracteres')
+                .max(10, 'Senha deve ter no máximo dez caracteres')
+                .required('Required'),
+            })
+          }
           onSubmit={({ email, password }) =>
             handleLoginRequest(email, password)
           }
         >
           {({ isSubmitting }) => (
             <Form className="formularios">
-              <label className="form-label" htmlFor="email">
-                Email
-                <Field className="formik-input" type="email" name="email" />
-              </label>
-              <ErrorMessage name="email" component="div" />
+              <Box className='input-container'>
+                <label className="form-label" htmlFor="email">
+                  Email
+                  <Field className="formik-input" type="email" name="email" />
+                </label>
+                <ErrorMessage name="email" component="div" className="error-message-input"/>
+              </Box>
 
-              <label className="form-label" htmlFor="password">
-                Senha
-                <Field
-                  className="formik-input"
-                  type="password"
-                  name="password"
-                />
-              </label>
-              <ErrorMessage name="password" component="div" />
-
-              <Box
-                as="button"
-                h="50"
-                w="100%"
-                type="submit"
+              <Box className='input-container'>
+                <label className="form-label" htmlFor="password">
+                  Senha
+                  <Field
+                    className="formik-input"
+                    type="password"
+                    name="password"
+                  />
+                </label>
+                <ErrorMessage name="password" component="div" className='error-message-input'/>
+              </Box>
+              
+              <Button 
+                type='submit'
+                id='submit-btn-login'
                 disabled={isSubmitting}
-                bg="#58a5bd"
               >
                 Entrar
-              </Box>
+              </Button>
             </Form>
           )}
         </Formik>
